@@ -13,14 +13,13 @@ class Solution {
                 continue;
             }
             //check is num can be append to a subsequence
-            if (need.containsKey(num) && need.get(num) > 0) {
+            if (need.getOrDefault(num, 0) > 0) {
                 //num can be append, need for num minus 1
                 need.put(num, need.get(num)- 1);
                 freq.put(num, freq.get(num)- 1);
                 //need for (num + 1) plus 1
                 need.put(num + 1, need.getOrDefault(num + 1, 0) + 1);
-            } else if (freq.containsKey(num) && freq.containsKey(num + 1) && freq.containsKey(num + 2)
-                && freq.get(num) > 0 && freq.get(num + 1) > 0 && freq.get(num + 2) > 0) {
+            } else if (freq.getOrDefault(num, 0) > 0 &&  freq.getOrDefault(num + 1, 0) > 0 && freq.getOrDefault(num + 2, 0) > 0) {
                 //begin a new subsequence with num as head: [num, num + 1, num + 2]
                 freq.put(num, freq.get(num) - 1);
                 freq.put(num + 1, freq.get(num + 1) - 1);
