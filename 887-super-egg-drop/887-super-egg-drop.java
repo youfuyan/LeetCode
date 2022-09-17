@@ -49,6 +49,8 @@ class Solution {
         //save res to memo
         memo[k][n] = res;
         return memo[k][n];
+        //time: O(knlogn)
+        //sapce: O(kn)
     }
     
 }
