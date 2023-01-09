@@ -18,23 +18,21 @@ class Node {
 */
 
 class Solution {
-    List<Integer> res = new LinkedList<>();
-    
     public List<Integer> preorder(Node root) {
-        traverse(root);
+        List<Integer> res = new LinkedList<>();
+        if (root == null) return res;
+        
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+    
+        while(!stack.empty()) {
+            Node cur = stack.pop();
+            res.add(cur.val);
+            int size = cur.children.size();
+            for (int i = size - 1; i >= 0; i--) {
+                stack.push(cur.children.get(i));
+            }
+        }
         return res;
     }
-    
-    public void traverse(Node root) {
-        if (root == null) {
-            return;
-        }
-        //preorder
-        res.add(root.val);
-        for (Node child : root.children) {
-            traverse(child);
-        }
-        //postorder
-    }
-    
 }
