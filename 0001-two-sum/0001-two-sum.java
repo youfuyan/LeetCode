@@ -9,6 +9,6 @@ class Solution {
                 maps.put(nums[i], i);
             }
         }
-        return null;                             
+        return null;
     }
 }
