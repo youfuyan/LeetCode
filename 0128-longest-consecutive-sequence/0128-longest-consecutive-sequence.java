@@ -15,7 +15,6 @@ class Solution {
                 }
                 res = Math.max(res, count);
             }
-            if(res > nums.length/2) break;
         }
         return res;
     }
